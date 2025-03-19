@@ -37,7 +37,7 @@ export async function createInvoice(formData: FormData) {
         `;
         
     } catch (error) {
-        console.log("ERROR 'in create invoice' BITCH")
+        console.log(error,"ERROR 'in create invoice' BITCH")
     }
     revalidatePath('/dashboard/invoices');
     redirect('/dashboard/invoices');
@@ -61,7 +61,7 @@ export async function updateInvoice(id: string, formData: FormData) {
         WHERE id = ${id}
     `;
     } catch (error) {
-        console.log("ERROR 'in update invoice' BITCH")
+        console.log(error,"ERROR 'in update invoice' BITCH")
     }
   
  
@@ -74,7 +74,7 @@ export async function deleteInvoice(id: string) {
     try {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
     } catch (error) {
-        console.log("ERROR 'in delete invoice' BITCH")
+        console.log(error,"ERROR 'in delete invoice' BITCH")
     }
     revalidatePath('/dashboard/invoices');
   
